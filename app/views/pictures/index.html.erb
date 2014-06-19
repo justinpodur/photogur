@@ -10,5 +10,8 @@
 <ul>
 	<% @most_recent_pictures.each do |picture| %>
 	<li><%= picture.title %></li>
+	<li><%= Picture.created_before(1.month.ago) %></li>
 	<% end %>
 </ul>
+
+<h1>Total pictures more than 1 month old: <%= Picture.created_before(1.month.ago).count %> </h1>
